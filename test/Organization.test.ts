@@ -30,7 +30,6 @@ describe('Organization', () => {
 
     it('when findById is called, query should be called', async () => {
         organization.findById(1, (id, response) => {
-            console.log(id);
         });
 
         expect(query.calledOnce);
