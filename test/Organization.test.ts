@@ -28,13 +28,11 @@ describe('Organization', () => {
         client.restore();
     })
 
-    it('findById', async () => {
-        query.resolves({
-            rows: [{}]
+    it('when findById is called, query should be called', async () => {
+        organization.findById(1, (id, response) => {
+            console.log(id);
         });
 
-        const result = await organization.findById(1);
-
-        expect(result.length).to.equal(1);
+        expect(query.calledOnce);
     })
 })
